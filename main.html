@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard for all your screens</title>
+    <!-- Add your CSS file here -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard for all your screens</h1>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <!-- Add your widgets here -->
+            <div id="clock-widget" style="border: 1px solid black; padding: 10px; margin: 10px;">
+                <h2>Clock Widget</h2>
+                <p id="clock"></p>
+            </div>
+        </section>
+
+        <section id="config">
+            <!-- Add your configuration options here -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+
+    <!-- Add your JavaScript file here -->
+    <script src="script.js"></script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+        }
+
+        // Update the clock immediately and then every minute
+        updateClock();
+        setInterval(updateClock, 60000);
+    </script>
+</body>
+</html>

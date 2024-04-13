@@ -6,9 +6,10 @@ This is a configurable dashboard for all your screens. This web page is designed
 
 - 📋 Dashboard showing information always standing by
 - 📱 Responsive design for all your devices
-- 🔋 Power efficient for always-on display
-- 🔧 Easy to configure and extensible by various widgets
-- 🌐 Accessible from anywhere
+- 🔋 Power efficient for always-on display (less script, resource usage)
+- 🔧 Easy to configure and extensible by various widgets (feel free to contribute widgets)
+- 🌐 Web-based and Accessible from anywhere (compatible with multiple platforms)
+- 📦 Easy to deploy and manage (dockerized)
 
 ### Uscases
 

@@ -23,3 +23,4 @@ This is a configurable dashboard for all your screens. This web page is designed
 - [ ] Clock widget
 - [ ] Weather widget
 - [ ] Calendar widget
+- [ ] online note display widget (show contents from online note service)

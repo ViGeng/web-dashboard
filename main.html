@@ -3,46 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard for all your screens</title>
-    <!-- Add your CSS file here -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Dashboard for all your screens</h1>
-    </header>
-
-    <main>
-        <section id="dashboard">
-            <!-- Add your widgets here -->
-            <div id="clock-widget" style="border: 1px solid black; padding: 10px; margin: 10px;">
-                <h2>Clock Widget</h2>
-                <p id="clock"></p>
-            </div>
-        </section>
-
-        <section id="config">
-            <!-- Add your configuration options here -->
-        </section>
-    </main>
-
-    <footer>
-        <!-- Add your footer content here -->
-    </footer>
-
-    <!-- Add your JavaScript file here -->
-    <script src="script.js"></script>
+    <div id="dashboard">
+        <!-- Basic dashboard layout -->
+        <div id="clock-widget">
+            <!-- Clock widget goes here -->
+        </div>
+        <div id="weather-widget">
+            <!-- Weather widget goes here -->
+        </div>
+        <div id="calendar-widget">
+            <!-- Calendar widget goes here -->
+        </div>
+        <div id="note-display-widget">
+            <!-- Online note display widget goes here -->
+        </div>
+    </div>
     <script>
+        // Add your JavaScript code here
+        // clock widget
         function updateClock() {
             const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock-widget').innerText = timeString;
         }
-
-        // Update the clock immediately and then every minute
-        updateClock();
-        setInterval(updateClock, 60000);
+        // Call updateClock every second, but only after the page has fully loaded
+        window.onload = function() {
+            updateClock();
+            setInterval(updateClock, 1000);
+        };
     </script>
 </body>
 </html>

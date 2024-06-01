@@ -22,5 +22,5 @@ This is a configurable dashboard for all your screens. This web page is designed
 - [x] Basic dashboard layout
 - [x] Clock widget
 - [ ] Weather widget
-- [ ] Calendar widget
+- [x] Calendar widget (google calendar iframe)
 - [ ] online note display widget (show contents from online note service)

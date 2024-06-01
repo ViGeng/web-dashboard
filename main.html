@@ -5,25 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+
     <style>
-        /* Add your CSS styles here */
+        /* CSS styles for the dashboard layout and widgets */
         #dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
             gap: 10px;
             grid-template-areas:
                 "clock weather"
-                "calendar notes";
+                "calendar calendar"
+                "notes notes";
         }
 
         #clock-widget {
             grid-area: clock;
             background-color: #f0f0f0;
             padding: 20px;
-            font-size: 2em;
+            font-size: 3.5em;
             text-align: center;
         }
+
+        /* calendar style here */
+        #calendar-widget {
+            grid-area: calendar;
+            background-color: #f0f0f0;
+            padding: 0px;
+            font-size: 5em;
+            text-align: center;
+        }
+
     </style>
 </head>
 
@@ -38,14 +49,19 @@
         </div>
         <div id="calendar-widget">
             <!-- Calendar widget goes here -->
+            <!-- custom google calendar: https://calendar.google.com/calendar/u/0/embedhelper?src=en.china%23holiday%40group.v.calendar.google.com&ctz=Asia%2FShanghai -->
+            <div style="position: relative; overflow: hidden; padding-top: 75%;">
+                <iframe src="https://calendar.google.com/calendar/embed?height=100%&wkst=2&ctz=Asia%2FShanghai&bgcolor=%23ffffff&showPrint=0&showTitle=0&showDate=0&showTz=0&mode=MONTH&title&showCalendars=0&src=ZW4uY2hyaXN0aWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2hpbmEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%234285F4&color=%230B8043" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen>
+                </iframe>
+            </div>
         </div>
         <div id="note-display-widget">
             <!-- Online note display widget goes here -->
         </div>
     </div>
     <script>
-        // Add your JavaScript code here
-        // clock widget
+        // Function to update the clock widget
         function updateClock() {
             const now = new Date();
             const hours = now.getHours();
@@ -53,7 +69,8 @@
             const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
             document.getElementById('clock-widget').innerText = timeString;
         }
-        // align the clock to the next minute
+
+        // Function to schedule the next clock update
         function scheduleNextUpdate() {
             const now = new Date();
             const seconds = now.getSeconds();
@@ -64,6 +81,7 @@
             }, millisecondsUntilNextMinute);
         }
 
+        // Initialize the widgets when the page loads
         window.onload = function () {
             updateClock();
             scheduleNextUpdate();

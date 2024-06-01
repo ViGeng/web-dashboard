@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
         /* Add your CSS styles here */
+        #dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            grid-template-areas:
+                "clock weather"
+                "calendar notes";
+        }
+
+        #clock-widget {
+            grid-area: clock;
+            background-color: #f0f0f0;
+            padding: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
     <div id="dashboard">
         <!-- Basic dashboard layout -->
@@ -31,15 +50,25 @@
             const now = new Date();
             const hours = now.getHours();
             const minutes = now.getMinutes();
-            const seconds = now.getSeconds();
-            const timeString = `${hours}:${minutes}:${seconds}`;
+            const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
             document.getElementById('clock-widget').innerText = timeString;
         }
-        // Call updateClock every second, but only after the page has fully loaded
-        window.onload = function() {
+        // align the clock to the next minute
+        function scheduleNextUpdate() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const millisecondsUntilNextMinute = (60 - seconds) * 1000;
+            setTimeout(function () {
+                updateClock();
+                setInterval(updateClock, 1000 * 60);
+            }, millisecondsUntilNextMinute);
+        }
+
+        window.onload = function () {
             updateClock();
-            setInterval(updateClock, 1000);
+            scheduleNextUpdate();
         };
     </script>
 </body>
+
 </html>

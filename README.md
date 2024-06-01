@@ -19,8 +19,8 @@ This is a configurable dashboard for all your screens. This web page is designed
 
 ## Roadmap
 
-- [ ] Basic dashboard layout
-- [ ] Clock widget
+- [x] Basic dashboard layout
+- [x] Clock widget
 - [ ] Weather widget
 - [ ] Calendar widget
 - [ ] online note display widget (show contents from online note service)

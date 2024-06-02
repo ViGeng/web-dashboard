@@ -2,6 +2,8 @@
 
 This is a configurable dashboard for all your screens. This web page is designed to show information as you configure it. You can access this webpage across all your devices.
 
+<img src="image.png" alt="Xiaomi Mix 2S" width="200"/>
+
 ## Features
 
 - 📋 Dashboard showing information always standing by
